@@ -67,7 +67,7 @@ const chatsSocketCon = ()=>{
                 
 
                 let welcomeMsgObj = {
-                    message:`welcome to our chat ->> ${myId} <<-online <------ [${dateTime}]`,
+                    msg:`welcome to our chat ->> ${myId} <<-online <------ [${dateTime}]`,
                     time:dateTime,
                     username:HOAX_BOT
                 } 
@@ -84,7 +84,7 @@ const chatsSocketCon = ()=>{
 
                         let USER_TABLE_NAME = results[0].chats_table_name ;
                         socket.broadcast.to(USER_TABLE_NAME).emit('msg',{
-                            message:`user ->> ${myId} <<- has joined at <--------- [${dateTime}]`,
+                            msg:`user ->> ${myId} <<- has joined at <--------- [${dateTime}]`,
                             time:dateTime,
                             username:HOAX_BOT
                             });    
@@ -104,7 +104,7 @@ const chatsSocketCon = ()=>{
                 let dateTime = getTime(); 
 
                 let sendMsgObj =  {
-                    message:data.message,
+                    msg:data.message,
                     time:dateTime,
                     username:data.myid
                 };
@@ -155,7 +155,7 @@ const chatsSocketCon = ()=>{
                         let chats_table_name = results[0].chats_table_name
                         let dateTime = getTime(); 
                         io.to(chats_table_name).emit('msg',{
-                            message:`user ->> ${myId} <<- has left at <--------- [${dateTime}]`,
+                            msg:`user ->> ${myId} <<- has left at <--------- [${dateTime}]`,
                             time:dateTime,
                             username:HOAX_BOT
                             });    
